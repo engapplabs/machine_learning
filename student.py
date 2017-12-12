@@ -13,14 +13,15 @@ sleept studied -> score
 max_value = 10, to normalize
 '''
 
-x = np.array([[8.0, 3.0], [10.0, 4.0], [10.0, 5.0], [5.0, 7.0], [5.0, 10.0],[10.0, 6.0]])
-y = np.array([[7.0], [8.0], [9.5], [4.5], [5.0],[10.0]])
+x = np.array([[0.8, 0.3], [1.0, 0.4], [1.0, 0.5], [0.5, 0.7], [0.5, 1.0]])
+y = np.array([[0.7], [0.8], [0.95], [0.45], [0.5]])
 
-model = Sequential()
+model = Sequential() # 2-5-1
 
 model.add(Dense(5, input_dim = 2))
 model.add(Dense(1))
 
+# stocastic gradient descent
 model.compile(optimizer = 'sgd', loss = 'mse', metrics = ['acc'])
 
 model.fit(x, y, epochs = 3000)
@@ -35,4 +36,4 @@ while True:
 
 	result = model.predict(t)
 
-	print("Previsto: " + str(2))
+	print("Previsto: " + str(result[0][0] * 10))
