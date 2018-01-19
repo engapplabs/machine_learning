@@ -76,7 +76,8 @@ def build_data_frame_from_instance_list(instance_list):
 
 	indexes_list = list(range(len(instance_list)))
 
-	atribute_matrix = [list(instance_state) for instance_state in states]
+	#atribute_matrix = [list(instance_state) for instance_state in states]
+	atribute_matrix = list(map(lambda instance_state: list(instance_state), states))
 
 	return pd.DataFrame(data = atribute_matrix, index = indexes_list,
 			columns = column_names)
